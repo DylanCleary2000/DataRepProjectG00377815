@@ -1,10 +1,111 @@
+import { queryByPlaceholderText } from '@testing-library/dom';
 import React from 'react';
 
 export class CreateBook extends React.Component {
+
+    constructor() {
+        super();
+        this.onSubmit = this.onSubmit.bind(this)
+        this.onChangeTitle = this.onChangeTitle.bind(this)
+        this.onChangeYear = this.onChangeYear.bind(this)
+        this.onChangeAuthor = this.onChangeAuthor.bind(this)
+        this.onChangeQuote = this.onChangeQuote.bind(this)
+        this.onChangeCover = this.onChangeCover.bind(this)
+
+        this.state = {
+            Title: '',
+            Year: '',
+            Author: '',
+            Quote: '',
+            Cover: ''
+        }
+    }
+
+    onChangeTitle(e) {
+        this.setState({
+            Title: e.target.value
+        })
+    }
+
+    onChangeYear(e) {
+        this.setState({
+            Year: e.target.value
+        })
+    }
+
+    onChangeAuthor(e) {
+        this.setState({
+            Author: e.target.value
+        })
+    }
+
+    onChangeQuote(e) {
+        this.setState({
+            Quote: e.target.value
+        })
+    }
+
+    onChangeCover(e) {
+        this.setState({
+            Cover: e.target.value
+        })
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        alert("Book: " + this.state.Title + this.state.Year + this.state.Author + this.state.Quote + this.state.Cover);
+    }
     render() {
         return (
-            <div>
-                <h1>CreateBook</h1>
+            <div className='App'>
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label>Add Book Title:</label>
+                        <input type='text'
+                            className='form-control'
+                            value={this.state.Title}
+                            onChange={this.onChangeTitle}></input>
+                    </div>
+
+                    <div className="form-group">
+                        <label>Add Year:</label>
+                        <input type='text'
+                            className='form-control'
+                            value={this.state.Year}
+                            onChange={this.onChangeYear}></input>
+
+                    </div>
+
+                    <div className="form-group">
+                        <label>Add Author:</label>
+                        <input type='text'
+                            className='form-control'
+                            value={this.state.Author}
+                            onChange={this.onChangeAuthor}></input>
+
+                    </div>
+
+                    <div className="form-group">
+                        <label>Add Quote:</label>
+                        <input type='text'
+                            className='form-control'
+                            value={this.state.Quote}
+                            onChange={this.onChangeQuote}></input>
+
+                    </div>
+
+                    <div className="form-group">
+                        <label>Add Cover:</label>
+                        <input type='text'
+                            className='form-control'
+                            value={this.state.Cover}
+                            onChange={this.onChangeCover}></input>
+                    </div>
+
+                    <div className = "form-group">
+                    <input type="submit" value="Add Book" className="btn btn-primary"></input>
+                    </div>
+                </form>
             </div>
         );
 
