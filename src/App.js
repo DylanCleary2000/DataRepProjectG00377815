@@ -6,8 +6,9 @@ import { Footer } from './Components/footer';
 import { Content } from './Components/content';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CreateBook } from './Components/createBook';
+import { ReadBook } from './Components/readBook';
 
 class App extends Component {
   render() {
@@ -28,8 +29,8 @@ class App extends Component {
           {/* Routing updated with router-dom V6 */}
           <Routes>
             <Route path='/' element={<Content />} exact />
-            <Route path='/read' element={<Footer />} exact />
-            <Route path='/create' element={<Header />} exact />
+            <Route path='/read' element={<ReadBook />} exact />
+            <Route path='/create' element={<CreateBook />} exact />
           </Routes>
 
 
