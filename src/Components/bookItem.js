@@ -6,12 +6,12 @@ export class BookItem extends React.Component {
         return (
             <div>
                 
-                <img src={this.props.book.Cover} width="200" height="200"></img>
+                <img src={this.props.book.cover} width="200" height="200"></img>
                 <Card>
-                    <Card.Title>{this.props.book.Title}</Card.Title>
-                    <Card.Header>By {this.props.book.Author} </Card.Header>
-                    <Card.Header>Year of Release: {this.props.book.Year}</Card.Header>
-                    <Card.Header> "{this.props.book.Quote}"</Card.Header>
+                    <Card.Title>{this.props.book.title}</Card.Title>
+                    <Card.Header>By {this.props.book.author} </Card.Header>
+                    <Card.Header>Year of Release: {this.props.book.year}</Card.Header>
+                    <Card.Header> "{this.props.book.quote}"</Card.Header>
 
                     
                 </Card>

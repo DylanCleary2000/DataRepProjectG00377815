@@ -27,7 +27,7 @@ export class ReadBook extends React.Component {
     componentDidMount() {
         axios.get('http://localhost:4000/api/books')
             .then((response) => {
-                this.setState({ books: response.data.books })
+                this.setState({ books: response.data})
             })
             .catch((error) => {
                 console.log(error)
