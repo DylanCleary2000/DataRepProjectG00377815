@@ -1,5 +1,6 @@
 import { queryByPlaceholderText } from '@testing-library/dom';
 import React from 'react';
+import axios from 'axios';
 
 export class CreateBook extends React.Component {
 
@@ -54,6 +55,21 @@ export class CreateBook extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Book: " + this.state.Title + this.state.Year + this.state.Author + this.state.Quote + this.state.Cover);
+        const newBook = {
+            title: this.state.Title,
+            year: this.state.Year,
+            author: this.state.Author,
+            quote: this.state.Quote,
+            cover: this.state.Cover
+        }
+        axios.post('http://localhost:4000/api/books', newBook)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
     }
     render() {
         return (
@@ -102,8 +118,8 @@ export class CreateBook extends React.Component {
                             onChange={this.onChangeCover}></input>
                     </div>
 
-                    <div className = "form-group">
-                    <input type="submit" value="Add Book" className="btn btn-primary"></input>
+                    <div className="form-group">
+                        <input type="submit" value="Add Book" className="btn btn-primary"></input>
                     </div>
                 </form>
             </div>
