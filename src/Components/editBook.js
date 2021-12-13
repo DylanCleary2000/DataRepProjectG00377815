@@ -22,56 +22,56 @@ export class EditBook extends React.Component {
         }
     }
 
-     componentDidMount(){
-         console.log(this.props.match.params.id);
-         axios.get('http://localhost:4000/api/books/'+this.props.match.params.id)
-         .then(response=>{
-             this.setState({
-                 _id:response.data._id,
-                 Title:response.data.title,
-                 Year:response.data.year,
-                 Author:response.data.author,
-                 Quote:response.data.quote,
-                 Cover:response.data.cover
-             })
-         })
-         .catch((error)=>{
-            console.log(error)
-         })
-        
-     }
+    componentDidMount() {
+        console.log(this.props.match.params.id);
+        axios.get('http://localhost:4000/api/books/' + this.props.match.params.id)
+            .then(response => {
+                this.setState({
+                    _id: response.data._id,
+                    Title: response.data.title,
+                    Year: response.data.year,
+                    Author: response.data.author,
+                    Quote: response.data.quote,
+                    Cover: response.data.cover
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
 
-    onChangeTitle(e) {
+    }
+
+    onChangeTitle(e) {//When title is changed,change state of title.
         this.setState({
             Title: e.target.value
         })
     }
 
-    onChangeYear(e) {
+    onChangeYear(e) {//When year is changed,change state of year.
         this.setState({
             Year: e.target.value
         })
     }
 
-    onChangeAuthor(e) {
+    onChangeAuthor(e) {//When author is changed,change state of author.
         this.setState({
             Author: e.target.value
         })
     }
 
-    onChangeQuote(e) {
+    onChangeQuote(e) {//When quote is changed,change state of quote.
         this.setState({
             Quote: e.target.value
         })
     }
 
-    onChangeCover(e) {
+    onChangeCover(e) {//When cover is changed,change state of cover.
         this.setState({
             Cover: e.target.value
         })
     }
 
-    onSubmit(e) {
+    onSubmit(e) {//Updates Books
         e.preventDefault();
         alert("Book: " + this.state.Title + this.state.Year + this.state.Author + this.state.Quote + this.state.Cover);
         const newBook = {
@@ -83,11 +83,11 @@ export class EditBook extends React.Component {
             _id: this.state._id
         }
 
-        axios.put('http://localhost:4000/api/books/'+this.state._id, newBook)
-        .then(res=>{
-            console.log(res.data)
-        })
-        .catch();
+        axios.put('http://localhost:4000/api/books/' + this.state._id, newBook)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch();
         // axios.post('http://localhost:4000/api/books', newBook)
         //     .then((res) => {
         //         console.log(res);
@@ -99,7 +99,7 @@ export class EditBook extends React.Component {
     }
     render() {
         return (
-            <div className='App'>
+            <div className='App' class="display">
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add Book Title:</label>

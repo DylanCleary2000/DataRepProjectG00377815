@@ -1,4 +1,4 @@
-import { queryByPlaceholderText } from '@testing-library/dom';
+
 import React from 'react';
 import axios from 'axios';
 
@@ -52,6 +52,7 @@ export class CreateBook extends React.Component {
         })
     }
 
+    //Outputs to the browser
     onSubmit(e) {
         e.preventDefault();
         alert("Book: " + this.state.Title + this.state.Year + this.state.Author + this.state.Quote + this.state.Cover);
@@ -62,6 +63,7 @@ export class CreateBook extends React.Component {
             quote: this.state.Quote,
             cover: this.state.Cover
         }
+        //Axios Handling HTTP
         axios.post('http://localhost:4000/api/books', newBook)
             .then((res) => {
                 console.log(res);
@@ -71,9 +73,11 @@ export class CreateBook extends React.Component {
             });
 
     }
+    //After values have been entered into the input boxes,triggers onChange and passed values to their associated methods.
+    
     render() {
         return (
-            <div className='App'>
+            <div className='App' class="display">
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add Book Title:</label>
@@ -81,7 +85,9 @@ export class CreateBook extends React.Component {
                             className='form-control'
                             value={this.state.Title}
                             onChange={this.onChangeTitle}></input>
+                        <br></br>
                     </div>
+
 
                     <div className="form-group">
                         <label>Add Year:</label>
@@ -89,7 +95,7 @@ export class CreateBook extends React.Component {
                             className='form-control'
                             value={this.state.Year}
                             onChange={this.onChangeYear}></input>
-
+                        <br></br>
                     </div>
 
                     <div className="form-group">
@@ -98,7 +104,7 @@ export class CreateBook extends React.Component {
                             className='form-control'
                             value={this.state.Author}
                             onChange={this.onChangeAuthor}></input>
-
+                        <br></br>
                     </div>
 
                     <div className="form-group">
@@ -107,7 +113,7 @@ export class CreateBook extends React.Component {
                             className='form-control'
                             value={this.state.Quote}
                             onChange={this.onChangeQuote}></input>
-
+                        <br></br>
                     </div>
 
                     <div className="form-group">
@@ -116,6 +122,7 @@ export class CreateBook extends React.Component {
                             className='form-control'
                             value={this.state.Cover}
                             onChange={this.onChangeCover}></input>
+                        <br></br>
                     </div>
 
                     <div className="form-group">

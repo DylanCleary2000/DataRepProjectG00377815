@@ -28,6 +28,47 @@
   color: #61dafb;
 }
 
+body{
+  background-image: url("https://cdn.wallpapersafari.com/0/80/KIiEkW.jpg");
+  
+}
+
+.display{
+  color:white;
+  
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width:min-content;
+  background-color: burlywood!important;
+  justify-content: center;
+
+  
+}
+
+
+
+input[type=text]:focus {
+  border: 3px solid #555;
+  background-color: burlywood;
+}
+
+
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.container {
+  padding: 10px 32px;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,9 +1,7 @@
 // IMPORTS
 import './App.css';
 import { Component } from 'react';
-import { Header } from './Components/header';
-import { Footer } from './Components/footer';
-import { Content } from './Components/content';
+import { ContentPage } from './Components/contentPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -20,19 +18,19 @@ class App extends Component {
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#home">BookWorm</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/read">Read</Nav.Link>
-              <Nav.Link href="/create">Create</Nav.Link>
+              <Nav.Link href="/">Reception</Nav.Link>
+              <Nav.Link href="/read">Library</Nav.Link>
+              <Nav.Link href="/create">Add Books</Nav.Link>
             </Nav>
           </Navbar>
           <br />
 
-          {/* Routing updated with router-dom V6 */}
+          {/* Routing Implementation */}
           <Switch>
-            <Route path='/' component={Content } exact />
-            <Route path='/read' component={ReadBook }  exact/>
-            <Route path='/create' component={CreateBook } exact />
-            <Route path='/edit/:id' component={EditBook }exact />
+            <Route path='/' component={ContentPage} exact />
+            <Route path='/read' component={ReadBook} exact />
+            <Route path='/create' component={CreateBook} exact />
+            <Route path='/edit/:id' component={EditBook} exact />
           </Switch>
 
 
