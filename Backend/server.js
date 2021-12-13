@@ -84,6 +84,14 @@ app.put('/api/books/:id', (req, res)=>{
     
 })
 
+app.delete('/api/books/:id',(req,res)=>{
+    console.log("Delete Book: "+req.params.id);
+
+    BookModel.findByIdAndDelete(req.params.id,(err,data)=>{
+        res.send(data);
+    })
+})
+
 app.post('/api/books', (req,res)=>{
 console.log('Book Recieved!');
 console.log(req.body.title);

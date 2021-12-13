@@ -3,7 +3,11 @@ import { Books } from './books';
 import axios from 'axios';
 
 export class ReadBook extends React.Component {
-
+constructor()
+{
+    super();
+    this.reloadBookData = this.reloadBookData.bind(this);
+}
     state = {
         books: [
             // {
@@ -34,12 +38,23 @@ export class ReadBook extends React.Component {
             });
     }
 
+    reloadBookData()
+    {
+        axios.get('http://localhost:4000/api/books')
+        .then((response) => {
+            this.setState({ books: response.data})
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+    }
+
 
     render() {
         return (
             <div>
                 <h1>Library</h1>
-                <Books books={this.state.books}></Books>
+                <Books books={this.state.books} reloadBookData={this.reloadBookData}></Books>
             </div>
         );
 
