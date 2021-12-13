@@ -72,6 +72,18 @@ app.get('/api/books/:id',(req,res)=>{
 
 })
 
+app.put('/api/books/:id', (req, res)=>{
+    console.log(req.params.id);
+    console.log(req.body);
+
+    BookModel.findByIdAndUpdate(req.params.id,req.body, {new:true},
+        (err,data)=>{
+            res.send(data);
+        })
+        
+    
+})
+
 app.post('/api/books', (req,res)=>{
 console.log('Book Recieved!');
 console.log(req.body.title);

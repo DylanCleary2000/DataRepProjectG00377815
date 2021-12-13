@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 export class BookItem extends React.Component {
     render() {
@@ -13,7 +14,7 @@ export class BookItem extends React.Component {
                     <Card.Header>Year of Release: {this.props.book.year}</Card.Header>
                     <Card.Header> "{this.props.book.quote}"</Card.Header>
 
-                    
+                    <Link to={"/edit/"+ this.props.book._id} className="btn btn-primary">Edit</Link>
                 </Card>
             </div>
         );
